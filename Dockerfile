@@ -23,6 +23,8 @@ RUN apt-get update && \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
+ENV BUILDKIT_PROGRESS=plain
+
 RUN wget -O bw.zip 'https://bitwarden.com/download/?app=cli&platform=linux' && \
     unzip bw.zip && \
     install bw /usr/local/bin/ && \
