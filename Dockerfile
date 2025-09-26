@@ -25,11 +25,6 @@ RUN apt-get update && \
 
 ENV BUILDKIT_PROGRESS=plain
 
-RUN wget -O bw.zip 'https://bitwarden.com/download/?app=cli&platform=linux' && \
-    unzip bw.zip && \
-    install bw /usr/local/bin/ && \
-    rm bw.zip bw
-
 RUN useradd --create-home --shell /bin/bash jenkins
 
 USER jenkins
