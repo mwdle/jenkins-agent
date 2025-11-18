@@ -1,8 +1,6 @@
-# Jenkins Agent (Custom)
+# Homelab Jenkins Agent
 
-A lightweight Jenkins agent image designed for use with the [Jenkins Docker Plugin](https://plugins.jenkins.io/docker-plugin/), preloaded with common DevOps tools for homelab automation and CI/CD pipelines.
-
-[GitHub](https://github.com/mwdle/jenkins-agent)
+A lightweight Jenkins agent image preloaded with common DevOps tools for homelab automation and CI/CD pipelines.
 
 ## Table of Contents
 
@@ -30,18 +28,30 @@ A lightweight Jenkins agent image designed for use with the [Jenkins Docker Plug
 
 Use in your Jenkins Docker cloud agent template configuration:
 
-    dockerTemplateBase:
-      image: mwdle/jenkins-agent:latest
-      connector:
-        attach:
-          user: jenkins
+```yaml
+# JCasC Example
+jenkins:
+  # ...
+  clouds:
+    - docker:
+        # ...
+        templates:
+          - connector:
+              attach:
+            dockerTemplateBase:
+              image: mwdle/jenkins-agent:latest # https://hub.docker.com/repository/docker/mwdle/jenkins-agent/general
+```
 
 ## Intended use
 
-This image is built to support homelab automation and Jenkins pipelines that require:
+This image is built to support homelab automation and Jenkins pipelines for:
 
-- Running Docker builds inside agent containers (via Docker-out-of-Docker pattern)
-- Access to Git, SSH, and Ansiblefor deployment/automation tasks
+- Running Docker builds and inside agent containers (via Docker-out-of-Docker pattern)
+- Access to
+  - Git
+  - SSH
+  - Docker Compose
+  - Ansible
 
 ## License
 
