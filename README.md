@@ -38,6 +38,7 @@ jenkins:
         templates:
           - connector:
               attach:
+                user: "jenkins" # Assumes the agent should run as user `jenkins`
             dockerTemplateBase:
               image: mwdle/jenkins-agent:latest # https://hub.docker.com/repository/docker/mwdle/jenkins-agent/general
 ```
