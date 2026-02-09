@@ -12,7 +12,7 @@ A lightweight Jenkins agent image preloaded with common DevOps tools for homelab
 
 ## Features
 
-- **Base:** [`eclipse-temurin:21-jre-jammy`](https://hub.docker.com/_/eclipse-temurin) (Java 21 JRE, Ubuntu Jammy)
+- **Base:** [`eclipse-temurin:25-jre-noble`](https://hub.docker.com/_/eclipse-temurin)
 - **Docker tooling**:
   - `docker-ce-cli`
   - `docker-compose-plugin`
