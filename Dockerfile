@@ -29,4 +29,6 @@ RUN useradd --create-home --shell /bin/bash jenkins
 
 USER jenkins
 
+RUN ansible-galaxy collection install community.general
+
 WORKDIR /home/jenkins
