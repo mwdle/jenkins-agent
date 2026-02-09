@@ -1,6 +1,6 @@
 # Java base image allows Jenkins to use the Docker Plugin's `attach` connector and inject the jenkins agent jar at runtime - the only requirement is that Java is installed and accessible in the container
 # Available on Docker Hub as `mwdle/jenkins-agent:latest`
-FROM eclipse-temurin:21-jre-jammy
+FROM eclipse-temurin:25-jre-noble
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -29,6 +29,6 @@ RUN useradd --create-home --shell /bin/bash jenkins
 
 USER jenkins
 
-RUN ansible-galaxy collection install community.general
-
 WORKDIR /home/jenkins
+
+RUN ansible-galaxy collection install community.general
