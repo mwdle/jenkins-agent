@@ -2,6 +2,9 @@
 # Available on Docker Hub as `mwdle/jenkins-agent:latest`
 FROM eclipse-temurin:25-jre-noble
 
+# https://bugs.launchpad.net/cloud-images/+bug/2005129
+RUN userdel -r ubuntu
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
