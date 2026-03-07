@@ -24,7 +24,11 @@ RUN apt-get update && \
     openssh-client \
     ansible \
     unzip \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && \
+    curl -Lso bw.zip 'https://bitwarden.com/download/?app=cli&platform=linux' && \
+    unzip bw.zip && \
+    install -m 755 bw /usr/local/bin/bw && \
+    rm bw.zip bw
 
 ENV BUILDKIT_PROGRESS=plain
 
