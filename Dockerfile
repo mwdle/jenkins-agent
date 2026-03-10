@@ -26,6 +26,10 @@ RUN apt-get update && \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
+COPY --from=rclone/rclone:latest /usr/local/bin/rclone /usr/local/bin/rclone
+COPY --from=restic/restic:latest /usr/bin/restic /usr/local/bin/restic
+COPY --from=cupcakearmy/autorestic:latest /usr/bin/autorestic /usr/local/bin/autorestic
+
 ENV BUILDKIT_PROGRESS=plain
 
 RUN useradd --create-home --shell /bin/bash jenkins
