@@ -8,22 +8,24 @@ RUN userdel -r ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ca-certificates curl && \
-    install -m 0755 -d /etc/apt/keyrings && \
+    apt-get install -y --no-install-recommends \
+    ansible \
+    ca-certificates \
+    curl \
+    git \
+    openssh-client \
+    sqlite3 \
+    unzip \
+    && install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
     chmod a+r /etc/apt/keyrings/docker.asc && \
-    echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
     $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
     tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     apt-get update && apt-get install -y --no-install-recommends \
+    docker-buildx-plugin \
     docker-ce-cli \
     docker-compose-plugin \
-    docker-buildx-plugin \
-    git \
-    openssh-client \
-    ansible \
-    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=rclone/rclone:latest /usr/local/bin/rclone /usr/local/bin/rclone
