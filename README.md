@@ -1,6 +1,6 @@
 # Homelab Jenkins Agent
 
-A lightweight [Jenkins agent Docker image](https://hub.docker.com/r/mwdle/jenkins-agent) preloaded with common DevOps tools for homelab automation and CI/CD pipelines.
+A custom Jenkins agent Docker image preloaded with common DevOps tools for homelab automation and CI/CD pipelines.
 
 ## Table of Contents
 
@@ -40,7 +40,7 @@ jenkins:
               attach:
                 user: "jenkins" # Assumes the agent should run as user `jenkins`
             dockerTemplateBase:
-              image: mwdle/jenkins-agent:latest # https://hub.docker.com/r/mwdle/jenkins-agent
+              image: your-container-registry.com/lab/jenkins-agent:latest
 ```
 
 ## Intended use
