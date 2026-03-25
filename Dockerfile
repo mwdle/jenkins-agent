@@ -1,5 +1,5 @@
 # Java base image allows Jenkins to use the Docker Plugin's `attach` connector and inject the jenkins agent jar at runtime - the only requirement is that Java is installed and accessible in the container
-FROM eclipse-temurin:25-jre-noble
+FROM eclipse-temurin:25.0.2_10-jre-noble
 
 # https://bugs.launchpad.net/cloud-images/+bug/2005129
 RUN userdel -r ubuntu
@@ -27,9 +27,9 @@ RUN apt-get update && \
     docker-compose-plugin \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=rclone/rclone:latest /usr/local/bin/rclone /usr/local/bin/rclone
-COPY --from=restic/restic:latest /usr/bin/restic /usr/local/bin/restic
-COPY --from=cupcakearmy/autorestic:latest /usr/bin/autorestic /usr/local/bin/autorestic
+COPY --from=rclone/rclone:1.73.3 /usr/local/bin/rclone /usr/local/bin/rclone
+COPY --from=restic/restic:0.18.1 /usr/bin/restic /usr/local/bin/restic
+COPY --from=cupcakearmy/autorestic:1.8.3 /usr/bin/autorestic /usr/local/bin/autorestic
 
 ENV BUILDKIT_PROGRESS=plain
 
