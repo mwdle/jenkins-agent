@@ -11,6 +11,7 @@ RUN apt-get update && \
     ansible \
     ca-certificates \
     curl \
+    dnsutils \
     git \
     openssh-client \
     sqlite3 \
