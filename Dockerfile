@@ -28,7 +28,7 @@ RUN apt-get update && \
     docker-compose-plugin \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=rclone/rclone:1.73.3@sha256:66af24d7c8809af336dc16068149257cf447c80f8c60aa9f5679153f42017b85 /usr/local/bin/rclone /usr/local/bin/rclone
+COPY --from=rclone/rclone:1.73.4@sha256:654f6517c7aaec7e377690b2caf7c272dbe5f3b8200afbc14a00df6b4a9aa6ef /usr/local/bin/rclone /usr/local/bin/rclone
 COPY --from=restic/restic:0.18.1@sha256:39d9072fb5651c80d75c7a811612eb60b4c06b32ffe87c2e9f3c7222e1797e76 /usr/bin/restic /usr/local/bin/restic
 COPY --from=cupcakearmy/autorestic:1.8.3@sha256:0a826ea59ca452dadae50e618c0a14800450c920d22da0e35cb23e7a8be36d1f /usr/bin/autorestic /usr/local/bin/autorestic
 
