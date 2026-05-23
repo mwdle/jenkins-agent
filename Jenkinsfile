@@ -6,7 +6,7 @@ boolean disableIndexTriggers = !isMainBranch
 
 dockerImagePipeline(
     disableIndexTriggers: disableIndexTriggers,
-    defaultDockerCredentialsId: "Gitea PAT",
+    defaultDockerCredentialsId: "Forgejo PAT",
     defaultRegistryHost: "${env.CONTAINER_REGISTRY_HOST}",
     defaultImageName: 'lab/jenkins-agent',
     alertEmail: "${env.ALERT_EMAIL}"
