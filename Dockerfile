@@ -18,7 +18,7 @@ RUN userdel -r ubuntu && \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=rclone/rclone:1.74.3@sha256:623378ad0ff3ebd5cebf77720843c0e02edfe46e2d5b5ac6bed54c6371780dfb /usr/local/bin/rclone /usr/local/bin/rclone
-COPY --from=restic/restic:0.18.1@sha256:39d9072fb5651c80d75c7a811612eb60b4c06b32ffe87c2e9f3c7222e1797e76 /usr/bin/restic /usr/local/bin/restic
+COPY --from=restic/restic:0.19.0@sha256:7f44e0057b82348597568ea209360762d0b38f8e1dbc8ad859661ac1055e45f2 /usr/bin/restic /usr/local/bin/restic
 COPY --from=cupcakearmy/autorestic:1.8.3@sha256:0a826ea59ca452dadae50e618c0a14800450c920d22da0e35cb23e7a8be36d1f /usr/bin/autorestic /usr/local/bin/autorestic
 
 RUN useradd --create-home --shell /bin/bash jenkins
