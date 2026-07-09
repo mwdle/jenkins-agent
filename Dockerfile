@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # https://bugs.launchpad.net/cloud-images/+bug/2005129
 RUN userdel -r ubuntu && \
     apt-get update && apt-get install -y --no-install-recommends \
-    ansible dnsutils curl ca-certificates git openssh-client sqlite3 unzip && \
+    ansible-core dnsutils curl ca-certificates git openssh-client sqlite3 unzip && \
     install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
