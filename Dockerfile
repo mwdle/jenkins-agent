@@ -17,7 +17,7 @@ RUN userdel -r ubuntu && \
     docker-buildx-plugin docker-ce-cli docker-compose-plugin \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=rclone/rclone:1.74.3@sha256:623378ad0ff3ebd5cebf77720843c0e02edfe46e2d5b5ac6bed54c6371780dfb /usr/local/bin/rclone /usr/local/bin/rclone
+COPY --from=rclone/rclone:1.74.4@sha256:c61954aaa32328a5486715dd063a81c7879f5195ad3505cd362deddd509dc4a1 /usr/local/bin/rclone /usr/local/bin/rclone
 COPY --from=restic/restic:0.19.1@sha256:136600b6ff6843d61d355f7f71f460a166429f35de6fd11b568fece3c9a4d510 /usr/bin/restic /usr/local/bin/restic
 COPY --from=cupcakearmy/autorestic:1.8.3@sha256:0a826ea59ca452dadae50e618c0a14800450c920d22da0e35cb23e7a8be36d1f /usr/bin/autorestic /usr/local/bin/autorestic
 
