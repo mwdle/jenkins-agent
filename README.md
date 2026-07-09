@@ -2,25 +2,21 @@
 
 A custom Jenkins agent Docker image preloaded with common DevOps tools for homelab automation and CI/CD pipelines.
 
-## Table of Contents
-
-- [Features](#features)
-- [Usage](#usage)
-- [Intended use](#intended-use)
-- [License](#license)
-- [Disclaimer](#disclaimer)
-
 ## Features
 
 - **Base:** [`eclipse-temurin:25-jre-noble`](https://hub.docker.com/_/eclipse-temurin)
 - **Docker tooling**:
+  - `docker-buildx-plugin`
   - `docker-ce-cli`
   - `docker-compose-plugin`
-  - `docker-buildx-plugin`
 - **DevOps utilities**:
+  - `ansible-core`
+  - `autorestic`
+  - `curl`
   - `git`
   - `openssh-client`
-  - `ansible`
+  - `rclone`
+  - `restic`
   - `unzip`
 - Configured `jenkins` user with home directory (`/home/jenkins`)
 
@@ -57,7 +53,3 @@ This image is built to support homelab automation and Jenkins pipelines for:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Disclaimer
-
-This repository and its contents are provided as-is for personal and educational use. The author assumes no responsibility for any errors, omissions, or consequences that may arise from the use of the information and scripts provided.
