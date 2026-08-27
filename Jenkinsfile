@@ -9,5 +9,10 @@ dockerImagePipeline(
     defaultDockerCredentialsId: "Forgejo PAT",
     defaultRegistryHost: "${env.CONTAINER_REGISTRY_HOST}",
     defaultImageName: 'lab/jenkins-agent',
-    alertEmail: "${env.ALERT_EMAIL}"
+    alertEmail: "${env.ALERT_EMAIL}",
+    postCheckoutSteps: {
+        stage('Security Scan') {
+            securityScanStep()
+        }
+    }
 )
