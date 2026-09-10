@@ -1,5 +1,5 @@
 # Java base image allows Jenkins to use the Docker Plugin's `attach` connector and inject the jenkins agent jar at runtime - the only requirement is that Java is installed and accessible in the container
-FROM eclipse-temurin:25.0.4_7-jre-noble@sha256:1e80201efc21b839ebc9b448b1f9b16aa5f036dd2885148282fe5dae38684fe1
+FROM eclipse-temurin:25.0.4_7-jre-noble@sha256:d120abd9d8d7dec94520ce974ece62d0e4eed8576eb00bbc84e6128307ab48ef
 
 ENV DEBIAN_FRONTEND=noninteractive \
     BUILDKIT_PROGRESS=plain
