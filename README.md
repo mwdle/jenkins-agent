@@ -4,7 +4,6 @@ A custom Jenkins agent Docker image preloaded with common DevOps tools for homel
 
 ## Features
 
-- **Base:** [`eclipse-temurin:25-jre-noble`](https://hub.docker.com/_/eclipse-temurin)
 - **Docker tooling**:
   - `docker-buildx-plugin`
   - `docker-ce-cli`
