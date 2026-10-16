@@ -10,6 +10,7 @@ apt-get install -y --no-install-recommends \
     ca-certificates \
     git \
     openssh-client \
+    podman-remote \
     python3 \
     python3-venv \
     rsync \

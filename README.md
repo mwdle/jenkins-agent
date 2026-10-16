@@ -8,6 +8,8 @@ A custom Jenkins inbound agent image preloaded with common DevOps tools for home
   - `docker-buildx-plugin`
   - `docker-ce-cli`
   - `docker-compose-plugin`
+- **Podman tooling**:
+  - `podman-remote`
 - **DevOps utilities**:
   - `ansible-core`
   - `autorestic`
