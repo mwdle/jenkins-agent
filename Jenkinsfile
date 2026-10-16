@@ -4,10 +4,7 @@
 boolean isMainBranch = (env.BRANCH_NAME == 'main' || env.BRANCH_NAME == 'master')
 boolean disableIndexTriggers = !isMainBranch
 
-dockerImagePipeline(
+containerImagePipeline(
     disableIndexTriggers: disableIndexTriggers,
-    defaultDockerCredentialsId: "Forgejo PAT",
-    defaultRegistryHost: 'git.mwdle.com',
-    defaultImageName: 'lab/jenkins-agent',
-    alertEmail: "${env.ALERT_EMAIL}"
+    defaultImageName: 'lab/jenkins-agent'
 )
