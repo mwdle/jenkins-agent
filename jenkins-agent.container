@@ -1,0 +1,43 @@
+[Container]
+Image=git.mwdle.com/lab/jenkins-agent:latest@sha256:c9f5464f9ae68d45848a4ca1c68e604b8b8603846fda0534e09d1663f4b57a41
+ContainerName=jenkins-agent
+
+AddHost=jenkins.mwdle.com:host-gateway
+
+Environment=REMOTING_OPTS="-url https://jenkins.mwdle.com/ -webSocket -secret @/run/secrets/jenkins_agent_secret -name %H"
+Environment=TZ=America/Denver
+
+Secret=jenkins_agent_secret,uid=1000,gid=1000,mode=0400
+
+Volume=/home/jenkins
+
+ReadOnly=true
+ReadOnlyTmpfs=false
+Tmpfs=/tmp
+Tmpfs=/run
+
+UserNS=auto
+NoNewPrivileges=true
+DropCapability=all
+
+RunInit=true
+
+HealthStartupCmd=grep -aqF agent.jar /proc/[0-9]*/cmdline || exit 1
+HealthStartupInterval=3s
+HealthStartupTimeout=5s
+HealthCmd=grep -aqF agent.jar /proc/[0-9]*/cmdline || exit 1
+HealthInterval=30s
+HealthTimeout=5s
+HealthOnFailure=kill
+Notify=healthy
+
+Memory=8G
+PidsLimit=1024
+
+[Service]
+CPUQuota=400%
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
