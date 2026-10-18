@@ -45,3 +45,7 @@ jenkins:
 ## Permanent inbound agents
 
 A rootless Podman Quadlet configuration for permanent Jenkins agents is available separately in [jenkins-agent-config](https://github.com/mwdle/jenkins-agent-config).
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
