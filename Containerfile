@@ -7,12 +7,7 @@ USER root
 RUN <<EOF
 set -e
 apt-get update
-apt-get install -y --no-install-recommends \
-    podman-remote \
-    python3 \
-    python3-venv \
-    rsync
-
+apt-get install -y --no-install-recommends podman-remote python3 python3-venv rsync
 rm -rf /var/lib/apt/lists/*
 EOF
 
@@ -23,7 +18,10 @@ COPY --chown=jenkins:jenkins requirements.txt requirements.yaml ./
 
 ENV PATH="/home/jenkins/.venv/bin:$PATH"
 
-RUN python3 -m venv /home/jenkins/.venv && \
-    pip install --no-cache-dir -r requirements.txt && \
-    ansible-galaxy collection install -r requirements.yaml && \
-    rm requirements.txt requirements.yaml
+RUN <<EOF
+set -e
+python3 -m venv /home/jenkins/.venv
+pip install --no-cache-dir -r requirements.txt
+ansible-galaxy collection install -r requirements.yaml
+rm requirements.txt requirements.yaml
+EOF
