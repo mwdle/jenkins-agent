@@ -12,7 +12,6 @@ rm -rf /var/lib/apt/lists/*
 EOF
 
 USER jenkins
-WORKDIR /home/jenkins
 
 COPY --chown=jenkins:jenkins requirements.txt requirements.yaml ./
 
