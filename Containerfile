@@ -25,3 +25,6 @@ pip install --no-cache-dir -r requirements.txt
 ansible-galaxy collection install -r requirements.yaml
 rm requirements.txt requirements.yaml
 EOF
+
+# Override TZ defined in base image to allow local timezone instead of UTC
+ENV TZ=:/etc/localtime
