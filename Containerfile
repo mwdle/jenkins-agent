@@ -1,6 +1,6 @@
 FROM docker.io/jenkins/inbound-agent:3391.va_37fa_a_305d6d-5-jdk25@sha256:c14d4a30e370d3f950eff67b905f4d5e5f6c433aae214ff66d6331b8b1f37ca2
 
-COPY --from=docker.io/aquasec/trivy:0.76.0@sha256:2416d1f74045b57274df1a340eee6b510cacd73c66a6ccb8da092b117eb7d222 /usr/local/bin/trivy /usr/local/bin/trivy
+COPY --from=docker.io/aquasec/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c /usr/local/bin/trivy /usr/local/bin/trivy
 
 USER root
 
